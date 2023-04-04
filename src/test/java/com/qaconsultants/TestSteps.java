@@ -61,7 +61,8 @@ public class TestSteps implements En {
         Given("^I switch to open products page$", () -> {
             System.out.println("I am now on the products page");
 
-            open("https://www.automationexercise.com/products");
+            //open("https://www.automationexercise.com/products");
+            $x("//*[@href='/products']").click();
         });
 
         // Given to: search for 'tshirts' in the search bar of the products page
@@ -76,6 +77,9 @@ public class TestSteps implements En {
         Given("^I select two shirts I want and add to cart$", () -> {
             System.out.println("I am now selecting two shirts and adding to the cart");
 
+            //$x("//div[@class='product-overlay']/descendant::p[text()='Men Tshirt']/following-sibling::a[@class='btn btn-default add-to-cart']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+            //$x("//div[@class='product-overlay']/descendant::p[text()='Pure Cotton V-Neck T-Shirt']/following-sibling::a[@class='btn btn-default add-to-cart']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+
             // add first shirt
             $x("//div[@class='product-image-wrapper']").scrollTo().hover();
             $x("//div[@class='single-products']/*/*[@class='btn btn-default add-to-cart']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
@@ -89,6 +93,8 @@ public class TestSteps implements En {
 
             // press 'View Cart' button
             $x("//*[text()='View Cart']").click();
+
+
         });
 
         // Given to: remove a shirt from the cart
