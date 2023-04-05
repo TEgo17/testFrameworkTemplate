@@ -13,6 +13,7 @@ public class TestSteps implements En {
     public TestSteps() {
 
        // setting up the configuration browser before each given
+        // selenide method: page - static method (provide URL and page object class)
        Before(() -> {
            Configuration.browser = "firefox";
            Configuration.browserBinary = "C:/Program Files/Mozilla Firefox/firefox.exe";
@@ -78,22 +79,24 @@ public class TestSteps implements En {
             System.out.println("I am now selecting two shirts and adding to the cart");
 
             //$x("//div[@class='product-overlay']/descendant::p[text()='Men Tshirt']/following-sibling::a[@class='btn btn-default add-to-cart']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
-            //$x("//div[@class='product-overlay']/descendant::p[text()='Pure Cotton V-Neck T-Shirt']/following-sibling::a[@class='btn btn-default add-to-cart']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+
 
             // add first shirt
             $x("//div[@class='product-image-wrapper']").scrollTo().hover();
-            $x("//div[@class='single-products']/*/*[@class='btn btn-default add-to-cart']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+          //  $x("//div[@class='single-products']/*/*[@data-product-id='2']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+            $x("//*[@data-product-id='2']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+
 
             // press 'Continue Shopping' button
-            $x("//div[@class='modal-content']/*/*[@class='btn btn-success close-modal btn-block']").click();
+            $x("//*[@class='btn btn-success close-modal btn-block']").click();
 
             // add secord shirt
             $x("//div[@class='product-image-wrapper']").scrollTo().hover();
-            $x("//div[@class='single-products']/*/*[@data-product-id='28']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+           // $x("//div[@class='single-products']/*/*[@data-product-id='28']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+            $x("//*[@data-product-id='28']").shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
 
             // press 'View Cart' button
             $x("//*[text()='View Cart']").click();
-
 
         });
 
@@ -133,6 +136,9 @@ public class TestSteps implements En {
             System.out.println("I am now downloading my invoice for the order I placed");
 
             $x("//*[text()='Download Invoice']").click();
+        });
+        Given("^I search \"([^\"]*)\" on the products page$", (String tshirtSearch) -> {
+            
         });
 
     }
