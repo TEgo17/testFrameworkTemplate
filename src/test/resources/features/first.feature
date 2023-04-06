@@ -5,20 +5,21 @@
     Scenario: Open the Login Page
       Given I open login page
 
-      Given I login as a registered user
+      And I login as a registered user
 
-      Given I switch to open products page
+      When I switch to open products page
 
-      Given I search "t shirts" on the products page
+      And I search "t shirts" on the products page
 
+      And I select two shirts I want and add to cart
 
-      Given I select "two shirts" I want and add to cart
+      When I remove one shirt I do not want from the cart
 
-      Given I remove one shirt I do not want from the cart
+      And I proceed to checkout to place my order
 
-      Given I proceed to checkout to place my order
+      And I place my order in checkout
 
-      Given I add my payment info to confirm my order
+      When I add my payment info to confirm my order
 
-      Given I download the invoice for the order I placed
+      When I download the invoice for the order I placed
 
