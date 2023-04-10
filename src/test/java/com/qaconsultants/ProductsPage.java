@@ -1,12 +1,27 @@
 package com.qaconsultants;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ProductsPage {
 
 
+    private WebDriver driver;
+    public ProductsPage (WebDriver driver) throws InterruptedException {
+        this.driver = driver;
+        Thread.sleep(2000);
+        PageFactory.initElements(driver, this);
+
+    }
 
 
     // Locators for the Login Page ------------
@@ -17,19 +32,16 @@ public class ProductsPage {
     @FindBy(how = How.XPATH, using = "//button[@id='submit_search']")
     private WebElement searchButton;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='product-image-wrapper']")
+    @FindBy(xpath= "//div[@class='product-image-wrapper']")
     private WebElement scroll;
 
-    @FindBy(how = How.XPATH, using = "//*[@data-product-id='2']")
+
     private WebElement firstShirt;
 
-    @FindBy(how = How.XPATH, using = "//*[@data-product-id='28']")
     private WebElement secondShirt;
 
-    @FindBy(how = How.XPATH, using = "//*[@class='btn btn-success close-modal btn-block']")
     private WebElement continueShoppingButton;
 
-    @FindBy(how = How.XPATH, using = "//*[text()='View Cart']")
     private WebElement viewCartButton;
 
 
@@ -42,22 +54,24 @@ public class ProductsPage {
         searchButton.click();
     }
 
-    public void selectFirstShirt() {
+    public void selectFirstShirt()  {
 
-        //scroll.scrollTo().hover();
-        //firstShirt.shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
-
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+        firstShirt = new WebDriverWait(this.driver, Duration.ofSeconds(2)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-product-id='2']")));
         firstShirt.click();
 
+        continueShoppingButton = new WebDriverWait(this.driver, Duration.ofSeconds(2)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='btn btn-success close-modal btn-block']")));
         continueShoppingButton.click();
     }
 
-    public void selectSecondShirt() {
-        //scroll.scrollTo().hover();
-        //secondShirt.shouldBe(Condition.enabled, Duration.ofSeconds(3)).click();
+    public void selectSecondShirt()  {
 
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+        secondShirt = new WebDriverWait(this.driver, Duration.ofSeconds(2)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-product-id='28']")));
         secondShirt.click();
-        continueShoppingButton.click();
+
+        viewCartButton = new WebDriverWait(this.driver, Duration.ofSeconds(2)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='View Cart']")));
+        viewCartButton.click();
     }
 
 }
