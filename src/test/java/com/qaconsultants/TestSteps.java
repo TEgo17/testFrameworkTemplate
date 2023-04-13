@@ -90,7 +90,6 @@ public class TestSteps implements En {
             productsPage.selectShirt("2");
             productsPage.selectShirt("28");
 
-
             Thread.sleep(1000);
         });
 
@@ -101,7 +100,6 @@ public class TestSteps implements En {
 
             Thread.sleep(1000);
         });
-
 
         // Given to: remove one t-shirt from the Cart Page
         When("^I remove one shirt I do not want from the cart$", () -> {

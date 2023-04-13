@@ -13,6 +13,8 @@
 
       When I select two shirts I want and add to cart
 
+      When I switch to open cart page
+
       When I remove one shirt I do not want from the cart
 
       When I proceed to checkout to place my order
