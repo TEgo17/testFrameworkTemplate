@@ -77,5 +77,4 @@ public class ProductsPage {
         continueShoppingButton = new WebDriverWait(this.driver, Duration.ofSeconds(2)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='btn btn-success close-modal btn-block']")));
         continueShoppingButton.click();
     }
-
 }
