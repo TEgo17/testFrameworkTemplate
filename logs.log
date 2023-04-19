@@ -1,0 +1,38 @@
+2023-04-17 15:57:59 INFO  RunPagesTest:37 - setting up web driver
+2023-04-17 15:57:59 INFO  RunPagesTest:43 - opening the login page
+2023-04-17 15:58:07 INFO  RunPagesTest:55 - entering login credentials and logging into site
+2023-04-17 15:58:19 INFO  RunPagesTest:69 - switching from the home page to the products page
+2023-04-17 15:58:22 INFO  RunPagesTest:81 - searching for t-shirts in the search bar
+2023-04-17 15:58:26 INFO  RunPagesTest:91 - selecting two shirts and adding them to the cart
+2023-04-17 15:58:29 INFO  RunPagesTest:100 - switching from products page to cart page
+2023-04-17 15:58:34 INFO  RunPagesTest:112 - removing one t-shirt from the cart
+2023-04-17 15:58:35 INFO  RunPagesTest:121 - clicking button to proceed to checkout
+2023-04-17 15:58:39 INFO  RunPagesTest:133 - clicking button to place order
+2023-04-17 15:58:44 INFO  RunPagesTest:145 - entering payment details to confirm order
+2023-04-17 15:58:47 INFO  RunPagesTest:160 - downloading the invoice after payment is secured
+2023-04-19 13:39:23 INFO  RunPagesTest:31 - Firefox web driver set up
+2023-04-19 13:39:28 INFO  RunPagesTest:39 - opened the login page
+2023-04-19 13:39:39 INFO  RunPagesTest:54 - added login credentials and logged in
+2023-04-19 13:39:42 INFO  RunPagesTest:67 - switched to product page from home page
+2023-04-19 13:41:00 INFO  RunPagesTest:31 - Firefox web driver set up
+2023-04-19 13:41:05 INFO  RunPagesTest:39 - opened the login page
+2023-04-19 13:41:16 INFO  RunPagesTest:54 - added login credentials and logged in
+2023-04-19 13:41:19 INFO  RunPagesTest:67 - switched to product page from home page
+2023-04-19 13:41:24 INFO  RunPagesTest:81 - searched for t-shirts
+2023-04-19 13:41:28 INFO  RunPagesTest:92 - selected two t-shirts and added them to the cart
+2023-04-19 13:41:30 INFO  RunPagesTest:101 - switched to cart page from the products pages
+2023-04-19 13:41:34 INFO  RunPagesTest:114 - removed a t-shirt from the cart
+2023-04-19 13:41:36 INFO  RunPagesTest:124 - clicked the button to enter the checkout
+2023-04-19 13:41:40 INFO  RunPagesTest:137 - clicked button to place order
+2023-04-19 13:41:43 INFO  RunPagesTest:154 - entered payment details
+2023-04-19 13:41:45 INFO  RunPagesTest:158 - clicked button to confirm order
+2023-04-19 13:41:52 INFO  RunPagesTest:168 - downloaded the invoice
+2023-04-19 13:49:06 INFO  RunPagesTest:33 - Firefox web driver set up
+2023-04-19 14:01:51 INFO  RunPagesTest:41 - Firefox web driver set up
+2023-04-19 14:01:56 INFO  RunPagesTest:49 - opened the login page
+2023-04-19 14:02:06 INFO  RunPagesTest:64 - added login credentials and logged in
+2023-04-19 14:02:09 INFO  RunPagesTest:77 - switched to product page from home page
+2023-04-19 14:02:16 INFO  RunPagesTest:91 - searched for t-shirts
+2023-04-19 14:04:03 INFO  RunPagesTest:41 - Firefox web driver set up
+2023-04-19 14:04:07 INFO  RunPagesTest:49 - opened the login page
+2023-04-19 14:04:18 INFO  RunPagesTest:64 - added login credentials and logged in
