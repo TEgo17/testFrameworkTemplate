@@ -1,9 +1,12 @@
 package com.qaconsultants;
 
 import io.cucumber.java8.En;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+
 
 /**
  * This TestSteps class uses the Cucumber and Selenium external libraries to automate a
@@ -19,7 +22,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class TestSteps implements En {
 
     // logger to document the test cases and conditions
-    private static Logger logger = Logger.getLogger(RunPagesTest.class);
+    private static Logger logger = LogManager.getLogger("MyLogger");
+
 
     // web driver to access website
     private WebDriver driver;
@@ -71,6 +75,10 @@ public class TestSteps implements En {
 
             // HomePage object
             this.homePage = new HomePage(this.driver);
+
+           // Thread.sleep(2000);
+
+           // homePage.blockAds();
 
             logger.debug("switching from the home page to the products page");
             homePage.clickProductsPage();

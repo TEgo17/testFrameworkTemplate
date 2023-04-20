@@ -36,3 +36,7 @@
 2023-04-19 14:04:03 INFO  RunPagesTest:41 - Firefox web driver set up
 2023-04-19 14:04:07 INFO  RunPagesTest:49 - opened the login page
 2023-04-19 14:04:18 INFO  RunPagesTest:64 - added login credentials and logged in
+2023-04-20 14:25:28 INFO  RunPagesTest:41 - Firefox web driver set up
+2023-04-20 14:25:32 INFO  RunPagesTest:49 - opened the login page
+2023-04-20 14:25:42 INFO  RunPagesTest:64 - added login credentials and logged in
+2023-04-20 14:25:46 INFO  RunPagesTest:77 - switched to product page from home page
