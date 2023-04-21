@@ -76,13 +76,11 @@ public class TestSteps implements En {
             // HomePage object
             this.homePage = new HomePage(this.driver);
 
-           // Thread.sleep(2000);
-
-           // homePage.blockAds();
-
             logger.debug("switching from the home page to the products page");
             homePage.clickProductsPage();
             logger.info("switched to product page from home page");
+
+            homePage.blockAds();
 
             Thread.sleep(1000);
         });
