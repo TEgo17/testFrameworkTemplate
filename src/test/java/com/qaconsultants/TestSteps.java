@@ -4,8 +4,8 @@ import io.cucumber.java8.En;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 /**
@@ -26,7 +26,11 @@ public class TestSteps implements En {
 
 
     // web driver to access website
-    private WebDriver driver;
+
+     private WebDriver driver;
+
+     private String extensionPath = "C:\\Users\\tegodawatte\\Desktop\\1.49.0_0";
+
 
     // ----- Page Object Model classes -------------
     private ProductsPage productsPage;
@@ -41,7 +45,15 @@ public class TestSteps implements En {
         // setting up the configuration browser  before each given statement
         Before(() -> {
             logger.debug("setting up Firefox web driver");
-            driver = new FirefoxDriver();
+            //driver = new FirefoxDriver();
+
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("load-extension=" + extensionPath);
+            driver = new ChromeDriver(options);
+
+
+
             logger.info("Firefox web driver set up");
         });
 
@@ -95,6 +107,7 @@ public class TestSteps implements En {
             productsPage.enterSearch("tshirts");
             productsPage.clickSearch();
             logger.info("searched for t-shirts");
+
 
             Thread.sleep(1000);
         });
