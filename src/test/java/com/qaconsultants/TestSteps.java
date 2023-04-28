@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
 /**
  * This TestSteps class uses the Cucumber and Selenium external libraries to automate a
  * scenario of a registered user logging into a site called AutomationExercise. The user
@@ -26,10 +25,8 @@ public class TestSteps implements En {
 
 
     // web driver to access website
-
      private WebDriver driver;
 
-     private String extensionPath = "C:\\Users\\tegodawatte\\Desktop\\1.49.0_0";
 
 
     // ----- Page Object Model classes -------------
@@ -44,17 +41,17 @@ public class TestSteps implements En {
 
         // setting up the configuration browser  before each given statement
         Before(() -> {
-            logger.debug("setting up Firefox web driver");
-            //driver = new FirefoxDriver();
+            logger.debug("setting up Chrome web driver");
 
+            // ------------------- Chrome Driver -----------------------
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--remote-allow-origins=*");
-            options.addArguments("load-extension=" + extensionPath);
             driver = new ChromeDriver(options);
 
+            // ------------------- Firefox Driver -----------------------
+            //driver = new FirefoxDriver();
 
-
-            logger.info("Firefox web driver set up");
+            logger.info("Chrome web driver set up");
         });
 
         // Given to: open the Automation Exercise website to the Login Page
@@ -92,7 +89,7 @@ public class TestSteps implements En {
             homePage.clickProductsPage();
             logger.info("switched to product page from home page");
 
-            homePage.blockAds();
+            homePage.adBlocker();
 
             Thread.sleep(1000);
         });
@@ -108,7 +105,6 @@ public class TestSteps implements En {
             productsPage.clickSearch();
             logger.info("searched for t-shirts");
 
-
             Thread.sleep(1000);
         });
 
@@ -117,6 +113,7 @@ public class TestSteps implements En {
 
             logger.debug("selecting two shirts and adding them to the cart");
             productsPage.selectShirt("2");
+
             productsPage.selectShirt("28");
             logger.info("selected two t-shirts and added them to the cart");
 
@@ -189,7 +186,7 @@ public class TestSteps implements En {
             Thread.sleep(1000);
         });
 
-        // Given to: downloading the invoice of the order in the Payment Page
+        // Given to: downloading the invoice for the order in the Payment Page
         When("^I download the invoice for the order I placed$", () -> {
 
             logger.debug("downloading the invoice after payment is secured");

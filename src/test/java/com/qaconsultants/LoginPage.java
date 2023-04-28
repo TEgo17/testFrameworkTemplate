@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    // FireFox web driver
     private WebDriver driver;
 
     // super constructor

@@ -1,7 +1,6 @@
 package com.qaconsultants;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +11,6 @@ import java.util.List;
 
 public class HomePage {
 
-    // FireFox web driver
     private WebDriver driver;
 
     // super constructor
@@ -54,50 +52,34 @@ public class HomePage {
         cartButton.click();
     }
 
+    /**
+     * Blocks incoming ads in Chrome and Firefox browsers by locating the dismiss ad
+     * button and clicking it
+     *
+     * @param  NONE
+     * @return void
+     */
+    public void adBlocker() {
 
-    private boolean clickDismissButton() {
-        if (driver.findElements(By.xpath("//*[@id='dismiss-button']"))
-                .size() == 1) {
-            WebElement dismissButton = driver.findElement(By.xpath("//*[@id='dismiss-button']"));
-            JavascriptExecutor executor = (JavascriptExecutor) driver;
-            executor.executeScript("arguments[0].click();", dismissButton);
-            return true;
-        }
-        return false;
-    }
+        WebElement frame = driver.findElement(By.xpath("//iframe[contains(@name,'aswift') and contains(@style,'visibility: visible')]"));
 
-    public void blockAds() throws InterruptedException {
-        try {
-            System.out.println("testing to close pop-up ads");
+        if (frame.isDisplayed()) {
 
-            List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
+            driver.switchTo().frame(frame);
 
-            for (int i = 0; i < iframes.size(); i++) {
-                driver.switchTo().frame(i);
-                System.out.println("frame: " + i);
+            List <WebElement> button = driver.findElements(By.xpath("//div[@id='dismiss-button']"));
 
-                int adCounter = driver.findElements(By.xpath("//div[@id='ad_position_box']")).size();
-
-                if (adCounter == 1) {
-                    if (clickDismissButton()) {
-                        break;
-                    }
-                    else {
-                        driver.switchTo().frame("ad_iframe");
-                        if (clickDismissButton()) {
-                            break;
-                        }
-                    }
-                }
-                driver.switchTo().parentFrame();
+            // some ads the dismiss ad button in the first frame
+            if (!button.isEmpty()) {
+                button.get(0).click();
             }
-        } catch (Exception e) {
-            System.out.println("no ads found");
+            else {
+                // check the second frame if the dismiss ad button is NOT in the first frame
+                driver.switchTo().frame(driver.findElement(By.id("ad_iframe")));
+                driver.findElement(By.id("dismiss-button")).click();
+                driver.switchTo().defaultContent();
+            }
         }
-
-        driver.switchTo().parentFrame();
-        Thread.sleep(2000);
-        driver.switchTo().defaultContent();
     }
 
 }

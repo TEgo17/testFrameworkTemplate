@@ -1,5 +1,6 @@
 package com.qaconsultants;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CheckoutPage {
 
-    // FireFox web driver
     private WebDriver driver;
 
     // super constructor
@@ -34,7 +34,7 @@ public class CheckoutPage {
      * @return void
      */
     public void clickPlaceOrder () {
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", placeOrderButton);
         placeOrderButton.click();
     }
-
 }

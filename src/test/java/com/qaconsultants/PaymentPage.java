@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PaymentPage {
 
-    // FireFox web driver
     private WebDriver driver;
 
     // super constructor

@@ -7,8 +7,6 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class CartPage {
-
-    // FireFox web driver
     private WebDriver driver;
 
     // super constructor

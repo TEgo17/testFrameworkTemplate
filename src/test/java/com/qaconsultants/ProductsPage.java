@@ -11,11 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
 
 public class ProductsPage {
 
-    // FireFox web driver
     private WebDriver driver;
 
     // super constructor
@@ -77,50 +75,5 @@ public class ProductsPage {
 
         continueShoppingButton = new WebDriverWait(this.driver, Duration.ofSeconds(2)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='btn btn-success close-modal btn-block']")));
         continueShoppingButton.click();
-    }
-
-    private boolean clickDismissButton() {
-        if (driver.findElements(By.xpath("//*[@id='dismiss-button']"))
-                .size() == 1) {
-            WebElement dismissButton = driver.findElement(By.xpath("//*[@id='dismiss-button']"));
-            JavascriptExecutor executor = (JavascriptExecutor) driver;
-            executor.executeScript("arguments[0].click();", dismissButton);
-            return true;
-        }
-        return false;
-    }
-
-    public void blockAds() throws InterruptedException {
-        try {
-            System.out.println("testing to close pop-up ads");
-
-            List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
-
-            for (int i = 0; i < iframes.size(); i++) {
-                driver.switchTo().frame(i);
-                System.out.println("frame: " + i);
-
-                int adCounter = driver.findElements(By.xpath("//div[@id='ad_position_box']")).size();
-
-                if (adCounter == 1) {
-                    if (clickDismissButton()) {
-                        break;
-                    }
-                    else {
-                        driver.switchTo().frame("ad_iframe");
-                        if (clickDismissButton()) {
-                            break;
-                        }
-                    }
-                }
-                driver.switchTo().parentFrame();
-            }
-        } catch (Exception e) {
-            System.out.println("no ads found");
-        }
-
-        driver.switchTo().parentFrame();
-        Thread.sleep(2000);
-        driver.switchTo().defaultContent();
     }
 }
