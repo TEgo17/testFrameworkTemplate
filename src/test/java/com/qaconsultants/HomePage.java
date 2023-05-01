@@ -69,7 +69,7 @@ public class HomePage {
 
             List <WebElement> button = driver.findElements(By.xpath("//div[@id='dismiss-button']"));
 
-            // some ads the dismiss ad button in the first frame
+            // some ads show the dismiss ad button in the first frame
             if (!button.isEmpty()) {
                 button.get(0).click();
             }

@@ -1,4 +1,0 @@
-cucumber
-requests
-selenium
-selenium-page-factory

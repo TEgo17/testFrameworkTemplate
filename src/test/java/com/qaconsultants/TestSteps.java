@@ -23,10 +23,8 @@ public class TestSteps implements En {
     // logger to document the test cases and conditions
     private static Logger logger = LogManager.getLogger("MyLogger");
 
-
     // web driver to access website
      private WebDriver driver;
-
 
 
     // ----- Page Object Model classes -------------
@@ -39,7 +37,7 @@ public class TestSteps implements En {
 
     public TestSteps() {
 
-        // setting up the configuration browser  before each given statement
+        // setting up the configuration browser before each given statement
         Before(() -> {
             logger.debug("setting up Chrome web driver");
 
